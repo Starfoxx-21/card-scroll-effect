@@ -1,0 +1,123 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: rgb(221, 223, 228);
+	width: 100%;
+	height: fit-content;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.random-content {
+	width: 100%;
+	min-height: 100vh;
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+    font-size: 30px;
+    gap: 10px;
+}
+
+.random-content p {
+    font-size: 20px;
+    font-style: italic;
+}
+
+.stack-area {
+	width: 100%;
+	height: 300vh;
+	display: flex;
+	top: 0;
+    position: relative;
+}
+
+.left-container {
+    position: sticky;
+    top: 0;
+    left: 0;
+	flex-basis: 50%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	width: 50%;
+	font-size: large;
+}
+
+.content h1 {
+	font-size: 60px;
+}
+
+.right-container {
+    position: sticky;
+    top: 0;
+	flex-basis: 50%;
+	height: 100vh;
+}
+
+.card {
+	position: absolute;
+	top: calc(50vh - 175px);
+	left: calc(50vh - 175px);
+	width: 90vw;
+	max-width: 350px;
+	height: 90vw;
+	max-height: 350px;
+	border-radius: 35px;
+	transition: 0.5s ease-in-out;
+}
+
+.card-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 40px 30px;
+}
+
+.card-content p {
+	font-weight: 700;
+	font-size: 35px;
+}
+
+.card-one {
+	background-color: dodgerblue;
+}
+
+.card-two {
+	background-color: rgb(63, 196, 70);
+}
+
+.card-three {
+	background-color: rgb(245, 84, 210);
+}
+
+.card-four {
+	background-color: rgb(170, 95, 231);
+}
+
+@media only screen and (max-width: 900px) {
+    .stack-area {
+        flex-direction: column;
+    }
+
+    .left-container, .right-container {
+		flex-basis: 100%;
+		height: auto;
+	}
+	
+	.card {
+		position: static;
+		margin: 20px auto;
+	}
+}
