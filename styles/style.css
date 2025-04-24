@@ -6,42 +6,40 @@
 
 body {
 	background-color: rgb(221, 223, 228);
-	width: 100%;
-	height: fit-content;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .random-content {
 	width: 100%;
 	min-height: 100vh;
-    display: flex;
+	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-    font-size: 30px;
-    gap: 10px;
+	font-size: 30px;
+	gap: 10px;
 }
 
 .random-content p {
-    font-size: 20px;
-    font-style: italic;
+	font-size: 20px;
+	font-style: italic;
 }
 
 .stack-area {
-	width: 100%;
-	height: 300vh;
-	display: flex;
+	height: 200vh;
+}
+
+.sticky-wrapper {
+	position: sticky;
 	top: 0;
-    position: relative;
+	height: 100vh;
+	display: flex;
 }
 
 .left-container {
-    position: sticky;
-    top: 0;
-    left: 0;
-	flex-basis: 50%;
-	height: 100vh;
+	width: 50%;
+	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -60,29 +58,56 @@ body {
 }
 
 .right-container {
-    position: sticky;
-    top: 0;
-	flex-basis: 50%;
-	height: 100vh;
+	width: 50%;
+	height: 100%;
+}
+
+.card-stack {
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 
 .card {
 	position: absolute;
-	top: calc(50vh - 175px);
-	left: calc(50vh - 175px);
-	width: 90vw;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 75vw;
 	max-width: 350px;
-	height: 90vw;
+	height: 75vw;
 	max-height: 350px;
 	border-radius: 35px;
-	transition: 0.5s ease-in-out;
-}
-
-.card-content {
+	padding: 40px 30px;
+	font-size: 20px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	padding: 40px 30px;
+	transition: transform 0.5s ease-in-out;
+}
+
+.card:nth-child(1) {
+	background: dodgerblue;
+	z-index: 4;
+}
+
+.card:nth-child(2) {
+	background: mediumseagreen;
+	z-index: 3;
+}
+
+.card:nth-child(3) {
+	background: hotpink;
+	z-index: 2;
+}
+
+.card:nth-child(4) {
+	background: rgb(170, 95, 231);
+	z-index: 1;
+}
+
+.card.away {
+	transform: translate(-50%, -120vh) rotate(-40deg);
 }
 
 .card-content p {
@@ -90,34 +115,22 @@ body {
 	font-size: 35px;
 }
 
-.card-one {
-	background-color: dodgerblue;
-}
-
-.card-two {
-	background-color: rgb(63, 196, 70);
-}
-
-.card-three {
-	background-color: rgb(245, 84, 210);
-}
-
-.card-four {
-	background-color: rgb(170, 95, 231);
-}
-
 @media only screen and (max-width: 900px) {
-    .stack-area {
-        flex-direction: column;
-    }
-
-    .left-container, .right-container {
-		flex-basis: 100%;
-		height: auto;
+	.sticky-wrapper {
+		flex-direction: column;
 	}
-	
+
+	.left-container,
+	.right-container {
+		width: 100%;
+		height: 50vh;
+	}
+
 	.card {
-		position: static;
-		margin: 20px auto;
+		font-size: 15px;
+	}
+
+	.card-content p {
+		font-size: 25px;
 	}
 }
